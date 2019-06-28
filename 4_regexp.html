@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+   var keyword=["上学","快乐","我的名字"];
+     var msg=prompt("请输入你的信息");
+     var str=keyword.join("|");
+     console.log(str);
+     var reg=new RegExp(str);
+     var i=msg.search(reg);
+     if(i!==-1){
+        document.write(`<h1 style="color:red">包含敏感词，不能发送</h1>`);
+     }else{
+        document.write(`<h1 style=color:green>成公${msg}</h1>`); 
+     }
+
+</script>
+</html>
