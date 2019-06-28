@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+  <p id="wen">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium error at excepturi tempore nostrum magnam iure perspiciatis nesciunt blanditiis pariatur.</p>
+</body>
+  <script>
+      var str="    qin    shao     ";
+      console.log(str);
+      //可以去掉字符串开头的空字符：l - left
+      function ltrim(str){
+          //其实就是讲字符串开头的空字符替换为 ""
+          return str.replace(/^\s+/,"");
+      }
+      console.log(ltrim(str));
+      //可以去掉字符串结尾的空字符：r -right
+      function rtrim(str){
+          return str.replace(/\s+$/,"");
+      }
+      console.log(rtrim(str));
+
+      function trim(str){
+          return str.replace(/^\s+|\s+$/g,"");
+      }
+      console.log(trim(str));
+ </script>
+</html>

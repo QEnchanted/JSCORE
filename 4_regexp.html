@@ -12,6 +12,7 @@
 <script>
    var keyword=["上学","快乐","我的名字"];
      var msg=prompt("请输入你的信息");
+     //将从服务端获取到的敏感词用join拼接成字符串str
      var str=keyword.join("|");
      console.log(str);
      var reg=new RegExp(str);
@@ -19,7 +20,7 @@
      if(i!==-1){
         document.write(`<h1 style="color:red">包含敏感词，不能发送</h1>`);
      }else{
-        document.write(`<h1 style=color:green>成公${msg}</h1>`); 
+        document.write(`<h1 style=color:green>成功${msg}</h1>`); 
      }
 
 </script>

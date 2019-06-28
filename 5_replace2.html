@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+  <p id="wen">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium error at excepturi tempore nostrum magnam iure perspiciatis nesciunt blanditiis pariatur.</p>
+</body>
+  <script>
+    var str=wen.innerHTML;
+    var arr=str.replace(/\b[a-z]/g,
+    function (kword){
+        return kword.toUpperCase();
+    });
+    console.log(arr);
+    </script>
+</html>
