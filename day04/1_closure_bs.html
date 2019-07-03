@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+<script>   
+ function parent(){
+     var n=999;
+     nAdd=function(){n++};
+     /*因为nAdd不是形参，也没有var，所以肯定不是局部变量
+       全局也没有一个变量叫nAdd
+       记住:js中给一个不存在的变量强行赋值，
+       结果自动在全局创建该变量，变量的值随着变量一起也到了全局
+     */
+     return function(){
+         console.log(n);
+     }
+ }
+ var getNum=parent();
+ getNum();
+ nAdd();
+ getNum();
+ /*确定是不是闭包题
+   1.看有没有外层函数、局部变量、内层函数
+   2.看有几个孩子，
+      return 一个孩子
+      强行给一个变量赋值
+   3.看包了几个红包
+ */
+</script>
+</html>
