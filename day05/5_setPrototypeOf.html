@@ -13,12 +13,14 @@
       this.sage=sage;
    }
    Student.prototype.intr=function(){
-       
+       console.log(`I'm ${this.sname},I'm 今年${this.sage}岁`);
    }
    var lilei=new Student("li lei",21);
    var hmm=new Student("han meimei",13);
    console.log(lilei);
    console.log(hmm);
+   lilei.intr();
+   hmm.intr();
  </script>   
 </body>
 </html>
