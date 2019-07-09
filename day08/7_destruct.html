@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+function order({
+  zx,tang,td,rc,sc
+/*配对  形参变量名
+    zx:zx,
+  tang:tang,
+    td:td,
+    rc:rc,
+    sc:sc
+*/
+}){
+  zx=zx||"";
+  tang=tang||"";
+  td=td||"";
+  rc=rc||"";
+  sc=sc||"";
+  console.log(`
+    主食:${zx},
+      汤:${tang},
+    甜点:${td},
+    肉菜:${rc},
+    素菜:${sc}
+  `);
+}
+
+order({
+  zx:"米饭",
+  tang:"嘎达汤",
+  td:"提拉米苏",
+  rc:"水煮肉片",
+  sc:"蒜蓉油麦"
+});
+order({
+  zx:"米饭",
+  rc:"水煮肉片",
+  sc:"蒜蓉油麦"
+});
+</script>
+</body>
+</html>
