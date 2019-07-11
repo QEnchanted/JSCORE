@@ -1,0 +1,68 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>1. 实现伸缩二级菜单</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="css/1.css" />
+</head>
+<body>
+	<ul class="tree">
+		<li>
+			<span class="open">考勤管理</span>
+			<ul>
+				<li>日常考勤</li>
+				<li>请假申请</li>
+				<li>加班/出差</li>
+			</ul>
+		</li>
+		<li><span>信息中心</span>
+			<ul>
+				<li>通知公告</li>
+				<li>公司新闻</li>
+				<li>规章制度</li>
+			</ul>
+		</li>
+		<li><span>协同办公</span>
+			<ul>
+				<li>公文流转</li>
+				<li>文件中心</li>
+				<li>内部邮件</li>
+				<li>即时通信</li>
+				<li>短信提醒</li>
+			</ul>
+		</li>
+	</ul>
+<script>
+//DOM 4步
+//1.查找触发事件的元素
+var spans=document.querySelectorAll(
+   "ul.tree>li>span"
+);
+//2.绑定事件处理函数
+for(var span of spans){
+	//每点一个span
+	span.onclick=function(){
+	  var span=this;//获得当前span
+	   //如果当前span是自己开着的，说明是开着的
+	    //就清除自己的class="open"，把自己关上
+	   if(span.className=="open"){
+		   span.className="";
+	   }else{
+		   //否则,如果自己是关着的
+           //找到ul下现在class="open"的元素
+	       //先清除它的class="open"，把它关上
+	       var open=document.querySelector(
+			   "ul.tree>li>span.open"
+		   );
+		   open!=null&&(open.className="");
+		   	//然后，再给自己的span加class="open"把自己打开	
+		   span.className="open";	
+	   }
+	}
+}
+//3.查找要修改的元素
+//4.修改元素
+//每个一级菜单的span都可以点击
+</script>
+</body>
+</html>
