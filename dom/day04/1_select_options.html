@@ -50,16 +50,16 @@ selProvs.onchange=function(){
     //创建文档片段frag
     var frag=document.createDocumentFragment();
     //创建<option>=请选择=，并追加到frag中
-    var opt=document.createElement("option");
-    opt.innerHTML="=请选择=";
-    frag.appendChild(opt);
+    frag.appendChild(
+      new Option("=请选择=")               
+    );
     //遍历cts中每个城市对象
     for(var c of cts){
       //每遍历一个城市对象，就创建一个<option>元素，设置起内容为城市名
-      var opt=document.createElement("option");
-      opt.innerHTML=c.name;
       //并将新<option>追加到frag中
-      frag.appendChild(opt);
+      frag.appendChild(
+        new Option(c.name,c.value)
+      );
     }//(遍历结束)
     //在添加新内容前，先清空selCts的旧内容
     selCts.innerHTML="";
@@ -71,6 +71,9 @@ selProvs.onchange=function(){
     //就隐藏旁边的selCts
     selCts.className="hide";
   }
+}
+selCts.onchange=function(){
+  alert(this.value);
 }
 </script>
 </body>

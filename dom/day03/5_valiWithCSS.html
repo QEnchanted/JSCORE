@@ -6,46 +6,90 @@
 	<link rel="Stylesheet" href="css/5.css" />
  </head>
  <body>
-	<form id="form1">
-		<h2>增加管理员</h2>
-		<table>
-			<tr>
-				<td>姓名：</td>
-        		<td>
-					<input name="username"/>
-					<span>*</span>
-				</td>
-				<td>
-					<div class="vali_info">
-						10个字符以内的字母、数字或下划线的组合
-					</div>
-				</td>
-			</tr>
-			<tr>
-				<td>密码：</td>
-				<td>
-					<input type="password" name="pwd"/>
-					<span>*</span>
-				</td>
-				<td>
-					<div class="vali_info">6位数字</div>
-				</td>
-			</tr>
-			<tr>
-				<td></td>
-				<td colspan="2">
-          <input type="submit" value="保存"/>
-          <input type="reset" value="重填"/>
-				</td>
-			</tr>				
-	    </table>
-	</form>
+<form id="form1">
+	<h2>增加管理员</h2>
+	<table>
+		<tr>
+			<td>姓名：</td>
+			<td>
+				<input name="username"/>
+				<span>*</span>
+			</td>
+			<td>
+				<div class="vali_info">
+					10个字符以内的字母、数字或下划线的组合
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>密码：</td>
+			<td>
+				<input type="password" name="pwd"/>
+				<span>*</span>
+			</td>
+			<td>
+				<div class="vali_info">6位数字</div>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td colspan="2">
+				<input type="submit" value="保存"/>
+				<input type="reset" value="重填"/>
+			</td>
+		</tr>				
+		</table>
+</form>
 <script>
-/*当文本框获得焦点时，清除文本框旁边的div的class*/
-//1.查找触发事件的元素
-var txtName=document.getElementsByName("username")[0];
-var txtPwd=document.getElementsByName("pwd")[0];
-//2.绑定事件处理函数	
+//鼠标点上去就要提示正确的格式
+//DOM四步
+//1.查找要触发的元素
+var txtname=document.getElementsByName("username")[0];
+var txtpwd=document.getElementsByName("pwd")[0];
+//2.绑定触发函数
+txtpwd.onfocus=
+txtname.onfocus=function(){
+	//3.查找要修改的元素
+	//找到他的爹的下一个兄弟的唯一一个孩子
+	var div=this.parentNode//td
+	            .nextElementSibling//下一个td
+				.children[0];
+	//4.修改元素
+	div.className="";			
+}
+//鼠标移出时，要验证输入的格式对不对
+//如果对，div的classname就为vali_success
+//如果不对，div的classname就为vali_fail
+//DOM四步，
+//绑定事件失去焦点事件
+txtname.onblur=function(){
+	//定义正则表达式
+    var reg=/^\w{1,10}$/;
+	vali.call(this,reg);
+}
+
+var vali=function(reg){
+	//查找要修改的元素
+	//找到他的爹的下一个兄弟的唯一一个孩子
+	var div=this.parentNode//td
+	            .nextElementSibling//下一个td
+				.children[0];
+	if(reg.test(this.value)==true){
+		div.className="vali_success";
+	}else{
+		div.className="vali_fail";
+	}
+}
+
+
+txtpwd.onblur=function(){
+	//定义正则表达式
+    var reg=/^\d{6}$/;
+	vali.call(this,reg);
+}
+
+//3.找到要修改的元素
+//4.修改元素
 </script>
  </body>
 </html>

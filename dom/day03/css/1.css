@@ -6,15 +6,13 @@ li span{
 	cursor: pointer;
   background: url("../images/add.png") no-repeat center left;
 }
-li ul{/*统一起始高度*/
+li ul{/*统一的起始高度*/
 	height:0px;
-	/*display:none;*/
-	overflow: hidden;
+	/* display: none;  */
+	overflow:hidden;
 	transition: all .5s linear;
 }
-/* li ul{display: none; } */
 .open{ background: url("../images/minus.png") no-repeat center left; }
-.open+ul{ display: block; }
 /*当每个li下的span获得class="open"时高度的预案是多少*/
 li:nth-child(1)>span.open+ul{
 	height:62px;
